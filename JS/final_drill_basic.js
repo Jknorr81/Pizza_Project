@@ -8,7 +8,7 @@ function getReceipt() {
 	for (var i = 0; i < sizeArray.length; i++) {
 		if (sizeArray[i].checked) {
 			var selectedSize = sizeArray[i].value;
-			text1 = text1+selectedSize+"<br>";
+			
 		}
 	}
 	if (selectedSize === "Personal Pizza") {
@@ -20,6 +20,7 @@ function getReceipt() {
 	} else if (selectedSize === "Extra Large Pizza") {
 		sizeTotal = 16;
 	}
+    text1 = text1+selectedSize+" = "+"["+"$"+sizeTotal+".00"+"]"+"<br>";
 	runningTotal = sizeTotal;
 	console.log(selectedSize+" = $"+sizeTotal+".00");
 	console.log("size text1: "+text1);
@@ -40,7 +41,7 @@ function getMeat(runningTotal,text1) {
 	}
 	var meatCount = selectedMeat.length;
 	if (meatCount > 1) {
-		meatTotal = (meatCount - 1);
+		meatTotal = (meatCount - 1);text1 = text1+"Additional Meats = "+"["+"$"+meatTotal+".00"+"]"+"<br>";
 	} else {
 		meatTotal = 0;
 	}
@@ -58,15 +59,14 @@ function getCheese(runningTotal,text1) {
 	for (var k = 0; k < cheeseArray.length; k++) {
 		if (cheeseArray[k].checked) {
 			var selectedCheese = cheeseArray[k].value;
-			text1 = text1+selectedCheese+"<br>";
 		}
 	}
-	if (selectedCheese === "Regular") {
-		cheeseTotal = 0;
+	if (selectedCheese === "Regular Cheese") {
+		cheeseTotal = 0;text1 = text1+selectedCheese+"<br>";
 	} else if (selectedCheese === "No Cheese") {
-		cheeseTotal = 0;
+		cheeseTotal = 0;text1 = text1+selectedCheese+"<br>";
 	} else if (selectedCheese === "Extra Cheese") {
-		cheeseTotal = 3;
+		cheeseTotal = 3;text1 = text1+selectedCheese+" = "+"["+"$"+cheeseTotal+".00"+"]"+"<br>";
 	}
 	runningTotal = (runningTotal + cheeseTotal);
 	console.log(selectedCheese+" = $"+cheeseTotal+".00");
@@ -83,19 +83,18 @@ function getCrust(runningTotal,text1) {
 	for (var l = 0; l < crustArray.length; l++) {
 		if (crustArray[l].checked) {
 			var selectedCrust = crustArray[l].value;
-			text1 = text1+selectedCrust+"<br>";
 		}
 	}
 	if (selectedCrust === "Plain Crust") {
-		crustTotal = 0;
+		crustTotal = 0;text1 = text1+selectedCrust+"<br>"
 	} else if (selectedCrust === "Garlic Butter Crust") {
-		crustTotal = 0;
+		crustTotal = 0;text1 = text1+selectedCrust+"<br>"
 	} else if (selectedCrust === "Cheese Stuffed Crust") {
-		crustTotal = 3;
+		crustTotal = 3;text1 = text1+selectedCrust+" = "+"["+"$"+crustTotal+".00"+"]"+"<br>"
 	} else if (selectedCrust === "Spicy Crust") {
-		crustTotal = 0;
+		crustTotal = 0;text1 = text1+selectedCrust+"<br>"
 	} else if (selectedCrust === "House Special Crust") {
-		crustTotal = 0;
+		crustTotal = 0;text1 = text1+selectedCrust+"<br>"
 	}
 	runningTotal = (runningTotal + crustTotal);
 	console.log(selectedCrust+" = $"+crustTotal+".00");
@@ -129,10 +128,11 @@ function getVeg(runningTotal,text1) {
 	}
 	var vegCount = selectedVeg.length;
 	if (vegCount > 1) {
-		vegTotal = (vegCount - 1);
+		vegTotal = (vegCount - 1);text1 = text1+"Additional Veg's = "+"["+"$"+vegTotal+".00"+"]"+"<br>";
 	} else {
 		vegTotal = 0;
 	}
+    
 	runningTotal = (runningTotal + vegTotal);
 	console.log("total selected veg items: "+vegCount);
 	console.log(vegCount+" veg - 1 free veg = "+"$"+vegTotal+".00");
