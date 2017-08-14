@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Coach's Pizza</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="CSS/Style.css">
+  </head>
+  <body>  
+      <div id="menuBG">
+        <h1>Coach's Pizza</h1>
+        <!-- Button trigger modal -->
+        <button id="btnOrder" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalLong" onclick="getReceipt()" value="Place Order">Place Order</button>
+        <form><button id="pricing" formaction="#priceTable">Pricing</button></form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModalLong" tabindex="-1" role="dialog" aria-labelledby="myModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLongTitle">Your Pizza is on it's way!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="cart">
+                    <div id="showText"></div>
+                    <div id="totalPrice"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--- /Modal --->
+       <!------ Size of Pizza ----------->
+          <form id="frmMenu">
+              <div class="left">
+                <div class="form-check">
+                    <h3>Size:</h3>
+                    <label class="form-check-label">
+                        <input class="form-check-input size" type="radio" name="Size" value="Personal Pizza">
+                        Personal Pizza<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input size" type="radio" name="Size" value="Medium Pizza">
+                        Medium<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input size" type="radio" name="Size" value="Large Pizza">
+                        Large<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input size" type="radio" name="Size" value="Extra Large Pizza">
+                        Extra Large<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+              </div>
+            
+   <!-- /Size of Pizza --------> 
+      
+    <!---------TOPPINGS-------->
+        
+            <div class="middle">
+                <div class="form-check">
+                <h3>Meats:</h3>
+                    <label class="form-check-label">
+                        <input class="form-check-input meats" type="checkbox" value="Pepperoni" name="meat">
+                        Pepperoni<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input meats" type="checkbox" value="Sausage" name="meat">
+                        Sausage<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input meats" type="checkbox" value="Canadian Bacon" name="meat">
+                        Canadian Bacon<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input meats" type="checkbox" value="Ground Beef" name="meat">
+                        Ground Beef<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input meats" type="checkbox" value="Anchovy" name="meat">
+                        Anchovy<br>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input meats" type="checkbox" value="Chicken" name="meat">
+                        Chicken<br>
+                    </label>
+                </div>
+            </div>
+     
+      <!--- /toppings ----> 
+      
+      <!--- CHEESE -->
+            <div class="right">
+            <h3>Cheese:</h3>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input cheese" type="radio" name="cheese" value="Regular">
+                        Regular
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input cheese" type="radio" name="cheese" value="No Cheese">
+                        No Cheese
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input cheese" type="radio" name="cheese" value="Extra Cheese">
+                        Extra Cheese
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--- /CHEESE -->
+      
+     <!-- Pizza Crust -->
+    <div id="menuBottom">       
+        <form id="frmMenu2">   
+            <div class="left">
+            <h3>Pizza Crust:</h3>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input crust" type="radio" name="crust" value="Plain Crust">
+                        Plain Crust
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input crust" type="radio" name="crust" value="Garlic Butter Crust">
+                        Garlic Butter Crust
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input crust" type="radio" name="crust" value="Cheese Stuffed Crust">
+                        Cheese Stuffed Crust
+                    </label>
+                </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input crust" type="radio" name="crust" value="Spicy Crust">
+                        Spicy Crust
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input crust" type="radio" name="crust" value="House Special Crust">
+                        House Special Crust
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+            </div>
+            <!-- /Pizza Crust -->
+
+            <!-- Sauce -->
+            <div class="middle">
+            <h3>Sauce:</h3>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input sauce" type="radio" name="sauce" value="Marinara Sauce">
+                        Marinara Sauce
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input sauce" type="radio" name="sauce" value="White Sauce">
+                        White Sauce
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input sauce" type="radio" name="sauce" value="Barbeque Sauce">
+                        Barbeque Sauce
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input sauce" type="radio" name="sauce" value="No Sauce">
+                        No Sauce
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                    </label>
+                </div>
+            </div>
+            <!-- /Sauce -->
+
+            <!-- VEGIES -->
+            <div class="right">
+            <h3>Vegetables:</h3>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Tomatoes">
+                        Tomatoes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Onions">
+                        Onions
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Olives">
+                        Olives
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Green Peppers">
+                        Green Peppers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Mushrooms">
+                        Mushrooms
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Pineapple">
+                        Pineapple
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Spinach">
+                        Spinach
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input veg" type="checkbox" name="veg" value="Jalapeno">
+                        Jalapeno
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /VEGIES -->
+      
+    <!-- Prices -->
+    
+    <table class="pizzaPrice" id="priceTable">
+        <tr class="columnHead">
+            <th><center>Item</center></th>
+            <th>Price</th>
+            <th><center>Meat</center></th>
+            <th><center>Price</center></th>
+            <th><center>Veg.</center></th>
+            <th><center>Price</center></th>
+        </tr>
+        <tr>
+            <th>Personal Pizza</th>
+            <th>$6.00</th>
+            <th><center>1</center></th>
+            <th><center>Complementary</center></th>
+            <th><center>1</center></th>
+            <th><center>Complementary</center></th>
+        </tr>
+        <tr>
+            <th>Medium Pizza</th>
+            <th>$10.00</th>
+            <th><center>2</center></th>
+            <th><center>$1.00</center></th>
+            <th><center>2</center></th>
+            <th><center>$1.00</center></th>
+        </tr>
+        <tr>
+            <th>Large Pizza</th>
+            <th>$14.00</th>
+            <th><center>3</center></th>
+            <th><center>$2.00</center></th>
+            <th><center>3</center></th>
+            <th><center>$2.00</center></th>
+        </tr>
+        <tr>
+            <th>Extra Large Pizza</th>
+            <th>$16.00</th>
+            <th><center>4</center></th>
+            <th><center>$3.00</center></th>
+            <th><center>4</center></th>
+            <th><center>$3.00</center></th>
+        </tr>
+        <tr>
+            <th>Extra Chesse</th>
+            <th>$3.00</th>
+            <th><center>5</center></th>
+            <th><center>$4.00</center></th>
+            <th><center>5</center></th>
+            <th><center>$4.00</center></th>
+        </tr>
+        <tr>
+            <th>Cheese Stuffed Crust</th>
+            <th>$3.00</th>
+            <th><center>6</center></th>
+            <th><center>$5.00</center></th>
+            <th><center>6</center></th>
+            <th><center>$5.00</center></th>
+        </tr>
+    </table>
+      
+    <!-- /Prices -->
+      
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+      
+    <script>$().button('toggle')</script>
+    <script src="./JS/final_drill_basic.js"></script>
+    <script>$('#myModalLong').modal(options)</script>
+  </body>
+</html>

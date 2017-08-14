@@ -1,0 +1,92 @@
+body{
+    background-image: url(./img/background.jpeg);
+}
+#menuBG {
+    width: 650px;
+    height: 350px;
+    margin: auto; 
+}
+#menuBottom {
+    width: 650px;
+    height: 320px;
+    margin: auto; 
+}
+h1{
+    font-size: 50px;
+    margin: 10px 0px 0px 125px;
+    color:firebrick
+}
+h3{
+    font-size: 20px;
+    text-shadow: 0px .25px;
+}
+#btnOrder{
+    margin:10px 0px 0px 225px;
+    width:150px;
+    height:40px;
+}
+#frmMenu{
+    width:610px;
+    height:200px;
+    font-size: 15px;
+    background-color:beige;
+    margin: 20px auto;
+}
+#frmMenu2{
+    width:610px;
+    height:260px;
+    font-size: 15px;
+    background-color:beige;
+    margin: 30px auto;
+}
+#totalPrice{
+    width:200px;
+    height:190px;
+    margin:0 auto;
+    float:right;
+}
+.left{
+    display: inline-block;
+    width:200px;
+    height: 200px;
+    padding-left: 25px
+    
+}
+.middle{
+    display: inline-block;
+    width:200px;
+    height:200px;
+    padding-left: 50px;
+}
+.right{
+    display: inline-block;
+    width:200px;
+    height:auto;
+    padding-left: 50px;
+}
+#showText{
+    width:200px;
+    height:190px;
+    margin:0px auto;
+    float:left;
+}
+#cart{
+    top:0;
+    margin:0px auto;
+    width:400px;
+    height: 450px;
+}
+table.pizzaPrice{
+    border: solid;
+    width: 650px;
+    margin: 0px auto;
+    position: relative;
+    
+}
+tr.columnHead{
+    font-size: 25px;
+    text-shadow: 1px .5px black;
+}
+#pricing{
+    margin: 5px 270px;
+}
